@@ -1,0 +1,22 @@
+.text-center {
+	text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.font-style-nil {
+	text-decoration: none;
+	color: inherit;
+}
+.border-bottom-grey {
+	border: solid 1px #C0C0C0;
+}
+.email {
+  color: #D3D3D3;
+}
