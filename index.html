@@ -9,10 +9,28 @@
 	<link rel="stylesheet" href="assets/vendor/css/font-awesome.css">
 </head>
 <body>
-	yo
+	<div class="pure-g">
+		<div class="pure-u-1-4"></div>
+		<div class="pure-u-1-2">
+			<h1 class="text-center">Hello there! I have some contacts that you might want.</h1>
+			<form class="pure-form">
+				<input id="contact-form" class="pure-input-1" type="text" placeholder="Email or Name Please"></input>
+			</form>
+			<div id="possible-contacts"></div>
+		</div>
+		<div class="pure-u-1-4"></div>
+	</div>
+	<script type="text/template" id="contact-template">
+		<a class="font-style-nil" href="#">
+			<div class="single-contact border-bottom-grey">
+				<div class="name text-center"><%=name%></div>
+				<div class="email text-center">(<%=email%>)</div>
+			</div>
+		</a>
+	</script>
 	<script src="assets/vendor/javascript/jquery.js"></script>
 	<script src="assets/vendor/javascript/underscore.js"></script>
 	<script src="assets/custom/javascript/data.js"></script>
-	<script type="assets/custom/javascript/main.js"></script>
+	<script src="assets/custom/javascript/main.js"></script>
 </body>
 </html>
