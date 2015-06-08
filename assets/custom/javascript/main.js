@@ -40,6 +40,10 @@ $(document).ready(function(){
 		})
 	}
 
+	function addSelectionViaEnter(){
+
+	}
+
 	function nothingInInputform(text){
 		text.trim()
 		if (text==="") {
