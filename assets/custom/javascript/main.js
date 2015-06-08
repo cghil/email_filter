@@ -22,12 +22,15 @@ $(document).ready(function(){
 		// 4 divs will be appended
 		// would have used forEach but forEach does not allow a loop break
 		}
-		addClickToContracts();
+		// if (e.which === 40) {
+		// 	addSelectionViaEnter()
+		// }
+		addClickToContacts();
 		nothingInInputform(text);
 	}
 
-	function addClickToContracts(){
-		var $contactContainers = $('.single-contact')
+	function addClickToContacts(){
+		var $contactContainers = $('.single-contact');
 		$contactContainers.each(function(){
 			$(this).click(function(){
 				var email = $(this).find('.email').text();
@@ -37,11 +40,17 @@ $(document).ready(function(){
 				emptyBox();
 				hideBox();
 			})
+			$(this).mouseover(addSelected);
+			$(this).mouseout(removeSelected);
 		})
 	}
 
-	function addSelectionViaEnter(){
+	function removeSelected(){
+		$(this).removeClass('selected-contact');
+	}
 
+	function addSelected(){
+		$(this).addClass('selected-contact');
 	}
 
 	function nothingInInputform(text){
