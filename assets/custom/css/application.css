@@ -14,9 +14,18 @@
 	text-decoration: none;
 	color: inherit;
 }
-.border-bottom-grey {
+.border-grey {
 	border: solid 1px #C0C0C0;
+}
+.border-bottom-grey {
+	border-bottom: solid 1px #C0C0C0;
 }
 .email {
   color: #D3D3D3;
+}
+.round-corners {
+	border-radius: 2px;
+}
+.padding-top-1 {
+	padding-top: 1px;
 }
