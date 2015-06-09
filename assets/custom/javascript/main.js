@@ -37,6 +37,7 @@ $(document).ready(function(){
 		}
 
 		addClickToContacts();
+		var text = $(this).val()
 		nothingInInputform(text);
 	}
 
