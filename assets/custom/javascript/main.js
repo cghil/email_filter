@@ -12,6 +12,7 @@ $(document).ready(function(){
 	function checkForSelected(e){
 		var keyvalue = e.which
 		if (keyvalue === 13){
+			e.preventDefault();
 			var $contactSelected = $('.selected-contact');
 			if ($contactSelected.length === 1){
 				var email = $contactSelected.find('.email').text();
