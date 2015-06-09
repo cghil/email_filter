@@ -29,43 +29,59 @@ $(document).ready(function(){
 			emptyBox();
 			showBox();
 			var text = $(this).val();
-			var regex = createRegexObj("^"+text+"");
-			var results = filter(EMAIL_DATA, regex);
-			if (results.length === 0){
-				$contactsBox.append(notFoundTemplate());
-			}
-			for (var index=0; index < results.length; index++){
-				var newContactGuess = $contactsBox.append(contactTemplate({
-					name: results[index].name,
-					email: results[index].address
-				}));
-				if (index >= 3){ break; }
-			// 4 divs will be appended
-			// would have used forEach but forEach does not allow a loop break
-			}
-			if (keyvalue === 40){
-				$contactContainers = $('.single-contact')
-				if (downarrowCounter > 0) {
-					$($contactContainers[downarrowCounter - 1]).removeClass('selected-contact');
-				}
-				$($contactContainers[downarrowCounter]).addClass('selected-contact');
-				if (downarrowCounter < 3){
-					downarrowCounter = downarrowCounter + 1;
-				}
-			}
-
-			if (keyvalue === 38){
-				$contactContainers = $('.single-contact')
-				if (downarrowCounter > 0 ) {
-					$($contactContainers[downarrowCounter]).removeClass('selected-contact');
-					downarrowCounter = downarrowCounter -1
-					$($contactContainers[downarrowCounter]).addClass('selected-contact');
-				}
-			}
+			var results = searchAndFilter(text);
+			appendGuessDivs(results);
+			arrowDown(keyvalue);
+			arrowUp(keyvalue);	
 		}
 
 		addClickToContacts();
 		nothingInInputform(text);
+	}
+
+	function appendGuessDivs(results){
+		if (results.length === 0){
+			$contactsBox.append(notFoundTemplate());
+		}
+		for (var index=0; index < results.length; index++){
+			var newContactGuess = $contactsBox.append(contactTemplate({
+				name: results[index].name,
+				email: results[index].address
+			}));
+			if (index >= 3){ break; }
+			// 4 divs will be appended
+			// would have used forEach but forEach does not allow a loop break
+		}
+	}
+
+	function searchAndFilter(text){
+		var regex = createRegexObj("^"+text+"");
+		var results = filter(EMAIL_DATA, regex);
+		return results
+	}
+
+	function arrowDown(keyvalue){
+		if (keyvalue === 40){
+			$contactContainers = $('.single-contact')
+			if (downarrowCounter > 0) {
+				$($contactContainers[downarrowCounter - 1]).removeClass('selected-contact');
+			}
+			$($contactContainers[downarrowCounter]).addClass('selected-contact');
+			if (downarrowCounter < 3){
+				downarrowCounter = downarrowCounter + 1;
+			}
+		}
+	}
+
+	function arrowUp(keyvalue){
+		if (keyvalue === 38){
+			$contactContainers = $('.single-contact');
+			if (downarrowCounter > 0 ) {
+				$($contactContainers[downarrowCounter]).removeClass('selected-contact');
+				downarrowCounter = downarrowCounter -1;
+				$($contactContainers[downarrowCounter]).addClass('selected-contact');
+			}
+		}
 	}
 
 	function addClickToContacts(){
