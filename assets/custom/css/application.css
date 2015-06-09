@@ -1,3 +1,11 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito);
+
+span {
+	font-family: 'Nunito', sans-serif;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+}
 .text-center {
 	text-align: center;
 }
@@ -29,16 +37,22 @@
 .margin-top-1 {
 	margin-top: 1px;
 }
-/*.single-contact:hover{
-	background-color: #808080;
-	color: #FFFFF0;
-}*/
-
+.big {
+	font-size: 4em;
+}
+.green {
+	color: #01bf01;
+}
+.share-grey {
+	color: #666666;
+}
 .selected-contact {
 	background-color: #808080;
 	color: #FFFFF0;
 }
-
 .red {
 	color: #FF0000;
+}
+.github:hover{
+	text-decoration: underline;
 }
